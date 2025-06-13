@@ -1,0 +1,1 @@
+result = document.querySelector('p #result')
