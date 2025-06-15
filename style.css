@@ -1,3 +1,100 @@
-#1{
-    background-color: aqua;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.calculator {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 320px;
+}
+
+#subDisplay, #display {
+    text-align: right;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #eeeeee;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    overflow-x: auto;
+}
+
+#display {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background-color: #fafafa;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    flex: 1;
+    margin: 5px;
+    border: none;
+    border-radius: 12px;
+    padding: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #dcdcdc;
+}
+
+#clearBtn {
+    background-color: #ff4d4d;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#clearBtn:hover {
+    background-color: #e60000;
+}
+
+.opBtn {
+    background-color: #4d94ff;
+    color: white;
+}
+
+.opBtn:hover {
+    background-color: #1a75ff;
+}
+
+.operation {
+    background-color: #28a745;
+    color: white;
+}
+
+.operation:hover {
+    background-color: #218838;
+}
+
+.functionBtn {
+    background-color: #ffa500;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    margin-top: 10px;
 }
