@@ -1,5 +1,6 @@
 let number1 = ''
 let number2 = ''
+let final
 let typeOfOperation
 let isOperationSpecified = false
 let activeNumber = 1
@@ -45,8 +46,17 @@ function addNumber(number) {
 }
 
 function addDecimal(){
+    
     if(!isDecimal){
-        addNumber('.')
+        if(activeNumber == 1){
+            
+            number1 += '.'
+            display.textContent = number1
+        }
+        else{ 
+            number2 += '.' 
+            display.textContent = number2}
+        
         isDecimal = true
     }
 }
@@ -75,32 +85,41 @@ opButtons.forEach(button =>{
     })
 })
 
-
+function undo(){
+    if(activeNumber = 1)
+    {
+        
+        return
+    }
+}
 
 let decimal = document.querySelector('#decimal')
 decimal.addEventListener('click', addDecimal)
 
 function handleOperation(){
-    isOperationSpecified = false
-    activeNumber = 1
+    number1 = parseFloat(number1)
+    number2 = parseFloat(number2)
+    console.log(number1);
+    console.log(number2);
+    final = number1
+    console.log(typeOfOperation);
 
     switch (typeOfOperation) {
         case '+':
             console.log('+');
-            
-            final = parseFloat(number1)+parseFloat(number2)
+            final = number1+number2
             break;
         case '-':
             console.log('-');
-            final = parseFloat(number1)-parseFloat(number2)
+            final = number1-number2
             break;
         case 'x':
             console.log('x');
-            final = parseFloat(number1)*parseFloat(number2)
+            final = number1*number2
             break;
         case '÷':
             console.log('dziel');
-            final = parseFloat(number1)/parseFloat(number2)
+            final = number1/number2
             break;
         default:
             break;
@@ -115,3 +134,4 @@ function logxd(){
     
     
 }
+
