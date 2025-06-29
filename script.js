@@ -5,6 +5,7 @@ let typeOfOperation
 let isOperationSpecified = false
 let activeNumber = 1
 let isDecimal = false
+let lastChar = 'none'
 let subDisplay = document.querySelector('#subDisplay')
 let display = document.querySelector('#display')
 
@@ -21,6 +22,7 @@ function clear(){
     display.textContent = ''
     activeNumber = 1
     isDecimal = false
+    lastChar = 'none'
     changeDisplays(number1, number2)
 }
 
@@ -35,6 +37,7 @@ function addNumber(number) {
     {   
         number1 += number
         display.textContent = number1
+        lastChar = 'number1'
     }
     else{
         activeNumber = 2
@@ -42,7 +45,9 @@ function addNumber(number) {
         subDisplay.textContent += typeOfOperation
         number2 += number
         display.textContent = number2
+        lastChar = 'number2'
     }
+    
 }
 
 function addDecimal(){
@@ -58,6 +63,7 @@ function addDecimal(){
             display.textContent = number2}
         
         isDecimal = true
+        lastChar = 'decimal'
     }
 }
 
@@ -86,12 +92,52 @@ opButtons.forEach(button =>{
 })
 
 function undo(){
-    if(activeNumber = 1)
-    {
-        
-        return
+    switch (lastChar) {
+        case 'none':
+            
+            break;
+        case 'number1':
+            number1 = number1.slice(number1.length*-1, number1.length-1)
+            display.textContent = number1
+            if(number1 == ''){
+                number1 = '0'
+                display.textContent = number1
+            }
+            break;
+        case 'number2':
+            number2 = number2.slice(number2.length*-1, number2.length-1)
+            display.textContent = number2
+            if(number2 == ''){
+                number2 = '0'
+                display.textContent = number2
+            }
+            break;
+        case 'operation':
+            
+            break;
+        case 'decimal':
+
+            if(activeNumber == 1){
+            
+            number1 = number1.slice(number1.length*-1, number1.length-1)
+            display.textContent = number1
+            }
+            else{ 
+                number2 = number2.slice(number2.length*-1, number2.length-1)
+                display.textContent = number2
+            }
+            
+            break;
+    
+        default:
+            console.log('huja dziala');
+            
+            break;
     }
 }
+
+let undoBtn = document.querySelector('#undoBtn')
+undoBtn.addEventListener('click', undo)
 
 let decimal = document.querySelector('#decimal')
 decimal.addEventListener('click', addDecimal)
@@ -124,14 +170,19 @@ function handleOperation(){
         default:
             break;
     }
+    lastChar = 'operation'
     clear()
     changeDisplays(final, final)
     addNumber(final)
 }
 
 document.querySelector('.operation').addEventListener('click', handleOperation)
-function logxd(){
-    
-    
-}
 
+
+
+
+function logxd(){
+    console.log(number1);
+    console.log(typeof number1);
+
+}
