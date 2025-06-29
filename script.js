@@ -137,10 +137,6 @@ function undo(){
             
             break;
     
-        default:
-            console.log('huja dziala');
-            
-            break;
     }
 }
 
@@ -153,26 +149,25 @@ decimal.addEventListener('click', addDecimal)
 function handleOperation(){
     number1 = parseFloat(number1)
     number2 = parseFloat(number2)
-    console.log(number1);
-    console.log(number2);
+
+
     final = number1
-    console.log(typeOfOperation);
+
 
     switch (typeOfOperation) {
         case '+':
-            console.log('+');
+
             final = number1+number2
             break;
         case '-':
-            console.log('-');
             final = number1-number2
             break;
         case 'x':
-            console.log('x');
+
             final = number1*number2
             break;
         case '÷':
-            console.log('dziel');
+
             final = number1/number2
             break;
         default:
@@ -195,9 +190,3 @@ function hasDecimal(string) {
     return false
 }
 
-
-function logxd(){
-    console.log('nigger'.slice(0,1));
-    console.log();
-
-}
