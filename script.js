@@ -109,11 +109,18 @@ function undo(){
             display.textContent = number2
             if(number2 == ''){
                 number2 = '0'
+                lastChar = 'operation'
                 display.textContent = number2
             }
             break;
         case 'operation':
-            
+            typeOfOperation = ''
+            isOperationSpecified = false
+            activeNumber = 1
+            lastChar = 'number1'
+            changeDisplays(number1, number2)
+            if(hasDecimal(number1))isDecimal = true
+            else isDecimal = false
             break;
         case 'decimal':
 
@@ -122,7 +129,8 @@ function undo(){
             number1 = number1.slice(number1.length*-1, number1.length-1)
             display.textContent = number1
             }
-            else{ 
+            else{
+                
                 number2 = number2.slice(number2.length*-1, number2.length-1)
                 display.textContent = number2
             }
@@ -178,11 +186,18 @@ function handleOperation(){
 
 document.querySelector('.operation').addEventListener('click', handleOperation)
 
-
+function hasDecimal(string) {
+    for (let i = 0; i < string.length; i++) {
+        if(string.slice(i,i+1) == '.'){
+            return true
+        }
+    }
+    return false
+}
 
 
 function logxd(){
-    console.log(number1);
-    console.log(typeof number1);
+    console.log('nigger'.slice(0,1));
+    console.log();
 
 }
