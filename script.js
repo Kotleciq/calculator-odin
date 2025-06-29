@@ -100,8 +100,7 @@ function undo(){
             number1 = number1.slice(number1.length*-1, number1.length-1)
             display.textContent = number1
             if(number1 == ''){
-                number1 = '0'
-                display.textContent = number1
+                display.textContent = '0'
             }
             break;
         case 'number2':
@@ -176,6 +175,9 @@ function handleOperation(){
     lastChar = 'operation'
     clear()
     changeDisplays(final, final)
+    if(indexOfComa(final) < 13 ){
+        final = final.slice(indexOfComa(final) + 4,)
+    }
     addNumber(final)
 }
 
@@ -190,3 +192,11 @@ function hasDecimal(string) {
     return false
 }
 
+
+function indexOfComa(string) {
+    for (let i = 0; i < string.length; i++) {
+        if(string.slice(i,i+1) == '.'){
+            return i
+        }
+    }
+}
